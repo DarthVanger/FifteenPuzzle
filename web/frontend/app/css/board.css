@@ -1,0 +1,11 @@
+#board {
+  display: inline-block;
+  height: 500px;
+  width: 500px;
+  border: dotted black 2px;
+  background-color: #eef;
+}
+.board-cell {
+  display: inline-block;
+  border: solid black 1px;
+}

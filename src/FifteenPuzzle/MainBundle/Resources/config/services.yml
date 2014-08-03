@@ -1,0 +1,7 @@
+parameters:
+#    fifteen_puzzle_main.example.class: FifteenPuzzle\MainBundle\Example
+
+services:
+#    fifteen_puzzle_main.example:
+#        class: %fifteen_puzzle_main.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

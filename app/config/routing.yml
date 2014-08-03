@@ -1,0 +1,4 @@
+fifteen_puzzle_main:
+    resource: "@FifteenPuzzleMainBundle/Resources/config/routing.yml"
+    prefix:   /
+

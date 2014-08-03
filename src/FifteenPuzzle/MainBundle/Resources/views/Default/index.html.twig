@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fifteen Puzzle Game</title>
+
+    <!-- set assets path variables -->
+    {% set app = "/frontend/app" %}
+    {% set bower = "/frontend/bower_components" %}
+
+    <!-- app js -->
+      <!-- jQuery -->
+      <script src={{ asset(bower ~ "/jquery/dist/jquery.min.js") }}></script>
+
+      <!-- Controllers -->
+      {% set controllers = app ~ "/js/controllers" %}
+      <script src={{ asset(controllers ~ "/GameFlowController.js") }}></script>
+
+      <!-- Models -->
+      {% set models = app ~ "/js/models" %}
+      <script src={{ asset(models ~ "/Board.js") }}></script>
+      <script src={{ asset(models ~ "/Cell.js") }}></script>
+      <script src={{ asset(models ~ "/Piece.js") }}></script>
+
+      <!-- View Models -->
+      {% set viewModels = app ~ "/js/viewModels" %}
+      <script src={{ asset(viewModels ~ "/HtmlBoard.js") }}></script>
+
+      <!-- initialize the app -->
+      <script>
+        $(document).ready(function() {
+          (new GameFlowController).initGame(); 
+        }); 
+      </script>
+    <!-- -------- -->
+
+    <!-- app css -->
+      <link href={{ asset(app ~ "/css/main.css") }} rel="stylesheet">
+
+    <!-- Twitter bootstrap -->
+      {% set bootstrap = bower ~ "/bootstrap/dist" %}
+      <!-- Bootstrap -->
+      <link href={{ asset(bootstrap ~ "/css/bootstrap.min.css") }} rel="stylesheet">
+
+      <!-- Include all compiled plugins (below), or include individual files as needed -->
+      <script src={{ asset(bootstrap ~ "/js/bootstrap.min.js") }}></script>
+
+      <!-- Bootstrap HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    <!-- ----------------- -->
+  </head>
+  <body>
+    <div id="main-container" class="container-fluid text-center">
+      <div id="board"></div>    
+    </div> <!-- end #main-container -->
+  </body>
+</html>
