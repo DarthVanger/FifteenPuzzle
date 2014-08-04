@@ -28,6 +28,10 @@
       {% set viewModels = app ~ "/js/viewModels" %}
       <script src={{ asset(viewModels ~ "/HtmlBoard.js") }}></script>
 
+      <!-- Exceptions -->
+      {% set exceptions = app ~ "/js/exceptions" %}
+      <script src={{ asset(exceptions ~ "/BoardException.js") }}></script>
+
       <!-- initialize the app -->
       <script>
         $(document).ready(function() {

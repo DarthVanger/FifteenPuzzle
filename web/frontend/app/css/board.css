@@ -9,3 +9,8 @@
   display: inline-block;
   border: solid black 1px;
 }
+.puzzle-piece {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 30px;
+}

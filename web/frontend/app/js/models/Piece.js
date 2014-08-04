@@ -2,7 +2,7 @@
  *  Piece Model
  *  Represents a puzzle piece on the board.
  */
- function Piece() {
+ function Piece(pieceNumber) {
   var self = this;
   
   /**
@@ -10,9 +10,23 @@
    */ 
   var number;
 
+
+  /**
+   *  Returns cell number
+   */
+  this.getNumber = function() {
+    return number;
+  }
+
+  /*** Private Methods ***/
+  
+  /*** End Private Methods ***/
+  
   /**
    * Constructor
    */
-  console.log('debug', 'Piece.constructor() invoked');
-  
+  //console.log('debug', 'Piece.constructor() invoked');
+  number = pieceNumber; 
+
+  /** end constructor **/
 }

@@ -5,8 +5,12 @@ module.exports = function(config){
 
     files : [
       'app/js/**/*.js',
-      'test/unit/**/*.js'
+      'test/unit/**/*.js',
+      'bower_components/jquery/dist/jquery.js'
+      //{pattern: 'test/test-index.html', served: true, included: false}
     ],
+
+    //preprocessors : [{'test/test-index.html' : ''}],
 
     autoWatch : true,
 

@@ -1,0 +1,29 @@
+
+    if (emptyCell.x < cells.length) {
+      // has right neighbor
+      var rightNeighborCell = board.getCell(emptyCell.x + 1, emptyCell.y);
+      expect(board.hasEmptyCellAround(rightNeighborCell)).toBe(true);
+    } else {
+      console.log('debug', 'hasEmptyCellAround test: empty cell is at the right edge of the board');
+    }
+    if (emptyCell.x > 0 ) {
+      // has left neighbor
+      var leftNeighborCell = board.getCell(emptyCell.x - 1, emptyCell.y);
+      expect(board.hasEmptyCellAround(leftNeighborCell)).toBe(true);
+    } else {
+      console.log('debug', 'hasEmptyCellAround test: empty cell is at the left edge of the board');
+    }
+    if (emptyCell.y < cells.length) {
+      // has bottom neighbor
+      var bottomNeighborCell = board.getCell(emptyCell.x, emptyCell.y + 1);
+      expect(board.hasEmptyCellAround(bottomNeighborCell)).toBe(true);
+    } else {
+      console.log('debug', 'hasEmptyCellAround test: empty cell is at the bottom edge of the board');
+    }
+    if (emptyCell.y > 0) {
+      // has top neighbor
+      var topNeighborCell = board.getCell(emptyCell.x, emptyCell.y - 1);
+      expect(board.hasEmptyCellAround(topNeighborCell)).toBe(true);
+    } else {
+      console.log('debug', 'hasEmptyCellAround test: empty cell is at the top edge of the board');
+    }
