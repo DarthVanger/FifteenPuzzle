@@ -30,10 +30,10 @@ function HtmlBoard(boardDivId, pieceArrangementMap) {
     fromCellDiv = cells[fromCell.x][fromCell.y];
     toCellDiv = cells[toCell.x][toCell.y];
 
-    console.log('debug', 'HtmlBoard.movePiece(): fromCellDiv = ' + fromCellDiv);
+    //console.log('debug', 'HtmlBoard.movePiece(): fromCellDiv = ' + fromCellDiv);
     var piece = fromCellDiv.removeChild(fromCellDiv.firstChild);
-    fromCellDiv.appendChild(createPiece(0));
-    toCellDiv.removeChild(toCellDiv.firstChild);
+    var emptyPiece = toCellDiv.removeChild(toCellDiv.firstChild);
+    fromCellDiv.appendChild(emptyPiece);
     toCellDiv.appendChild(piece);
   }
 
@@ -85,7 +85,7 @@ function HtmlBoard(boardDivId, pieceArrangementMap) {
           (function() {
             var j = m;
             $(cells[i][j]).on('click', function() {
-              console.log('debug', 'HtmlBoard.clickListener: cell (' + i + ',' + j + ') clicked, triggering event');
+              console.log('debug', 'HtmlBoard.clickListener: cell (' + i + ',' + j + ') clicked, triggering "BoardClick" event');
               $(document).trigger('BoardClick', [i, j]); 
             });
           }())
@@ -112,12 +112,12 @@ function HtmlBoard(boardDivId, pieceArrangementMap) {
    */
   function createPiece(pieceNumber) {
     var pieceDiv = document.createElement('div');
-    pieceDiv.innerHTML = pieceNumber;
     pieceDiv.className = 'puzzle-piece';
     if (pieceNumber == 0) {
-      pieceDiv.innerHTML = '-';
+      pieceDiv.innerHTML = '&nbsp;';
+    } else {
+      pieceDiv.innerHTML = pieceNumber;
     }
-    
     return pieceDiv;
   }
 

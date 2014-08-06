@@ -92,4 +92,43 @@ describe("Board model", function() {
     expect(emptyCell.isEmpty()).toBe(true);
   });
 
+  it("should have puzzleSolved() responding correctly for solved and not solved configurations", function() {
+    var solvedPieceArrangementMap = generateSolvedPieceArrangementMap();
+    //console.log('debug', 'Board.puzzleSolved test: solvedPieceArragementMap: ' + solvedPieceArrangementMap);
+    var board = new Board(solvedPieceArrangementMap);
+    expect(board.puzzleSolved()).toBe(true);
+
+    // swap two pieces
+    var notSolvedMap = solvedPieceArrangementMap;
+    notSolvedMap[3][2] = 14;
+    notSolvedMap[3][1] = 15;
+    board = new Board(notSolvedMap);
+    expect(board.puzzleSolved()).toBe(false);
+
+    // swap empty cell and a piece
+    notSolvedMap[3][1] = 0;
+    notSolvedMap[3][3] = 15;
+    board = new Board(notSolvedMap);
+    expect(board.puzzleSolved()).toBe(false);
+  });
+
+  /**
+   *  Generate solved piece arrangement map
+   */
+  function generateSolvedPieceArrangementMap() {
+    var map = new Array(boardWidth);
+    var boardWidth = board.getBoardWidth();
+    for (var i=0; i<boardWidth; i++) {
+      map[i] = new Array(boardWidth);  
+      for (var j=0; j<boardWidth; j++) {
+        pieceNumber = i * boardWidth + (j+1);
+        map[i][j] = pieceNumber;
+      }
+    }
+
+    // set the bottom right piece number to 0
+    map[boardWidth - 1][boardWidth - 1] = 0;
+    return map;
+  }
+
 });

@@ -5,6 +5,7 @@
  */
 function Board(pieceArrangementMap) {
   var self = this;
+  var selff = this;
 
   /**
    *  Width of the board in cells.
@@ -56,6 +57,17 @@ function Board(pieceArrangementMap) {
     return emptyCell;
   }
 
+  /**
+   *  Dumps piece arrangement to log 
+   */
+  function dumpPieceArrangementToLog() {
+    var pieceMap = self.getPieceArrangementMap();
+    for (var i=0; i<pieceMap.length; i++) {
+      for (var j=0; j<pieceMap[i].length; j++) {
+        console.log('debug', 'dumping piece map: pieceMap['+i+']['+j+'] = ' + pieceMap[i][j]);
+      }
+    }
+  }
 
   /**
    *  Generates and returns pieceArrangementMap.
@@ -339,7 +351,7 @@ function Board(pieceArrangementMap) {
     }
 
     // check if map length meets board width
-    if (map.length !== boardWidth || map[0].length !== boardWidth ) {
+    if (!( map.length === boardWidth || map.length[0] === boardWidth ) ) {
       throw new BoardException(
         'validatePieceArrangementMap(): '
         + 'Board.constructor(): piece arrangement map dimensions (' + map.length + ',' + map[0].length + ')'
@@ -355,19 +367,8 @@ function Board(pieceArrangementMap) {
       }
     }
 
-    console.log(
-      'debug',
-      'Board.validatePieceArrangementMap(): piece map\'s all numbers: '
-      + allPieceNumbers
-    );
-
-    // sort the numbers in ascending order to easily check if we they are good 
-    allPieceNumbers.sort(function(a, b){return a-b});
-    console.log(
-      'debug',
-      'Board.validatePieceArrangementMap(): piece map\'s all numbers sorted: '
-      + allPieceNumbers
-    );
+    // sort the numbers to easily check if we they are good 
+    allPieceNumbers.sort();
 
     // the numbers should look like 0, 1, 2, 3... now, check this
     for (var i=0; i<allPieceNumbers.length; i++) {
@@ -376,23 +377,6 @@ function Board(pieceArrangementMap) {
           'validatePieceArrangementMap(): '
           + 'the map numbers are invalid: ' + allPieceNumbers[i] + ' should have been equal to ' + i
         );
-      }
-    }
-
-    console.log(
-      'debug',
-      'Board.validatePieceArrangementMap(): Validation OK'
-    );
-  }
-
-  /**
-   *  Dumps piece arrangement to log 
-   */
-  function dumpPieceArrangementToLog() {
-    var pieceMap = self.getPieceArrangementMap();
-    for (var i=0; i<pieceMap.length; i++) {
-      for (var j=0; j<pieceMap[i].length; j++) {
-        console.log('debug', 'dumping piece map: pieceMap['+i+']['+j+'] = ' + pieceMap[i][j]);
       }
     }
   }

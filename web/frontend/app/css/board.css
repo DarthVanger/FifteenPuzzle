@@ -1,10 +1,32 @@
 #board {
   display: inline-block;
-  height: 500px;
-  width: 500px;
-  border: dotted black 2px;
+  vertical-align: middle;
+  border: solid black 1px;
   background-color: #eef;
+  cursor: pointer;
+  /* disable user select highliting */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+
+/* Extra Small and Small devices (phones, tablets, less than 992 px) */
+#board {
+  width: 95vmin;
+  height: 95vmin;
+}
+
+/* Medium and Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  #board {
+    height: 500px;
+    width: 500px;
+  }
+}
+
 .board-cell {
   display: inline-block;
   border: solid black 1px;
@@ -13,4 +35,11 @@
   display: inline-block;
   vertical-align: middle;
   font-size: 30px;
+}
+/* ghost 100% height element for vertical aligning */
+.board-cell:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
