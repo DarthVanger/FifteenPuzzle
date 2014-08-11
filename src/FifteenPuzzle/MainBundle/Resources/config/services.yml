@@ -1,7 +1,14 @@
 parameters:
-#    fifteen_puzzle_main.example.class: FifteenPuzzle\MainBundle\Example
+
+    # Managers _________________
+
+    fifteen_puzzle.user_manager.entity: FifteenPuzzleMainBundle:User
+    fifteen_puzzle.user_manager.class: FifteenPuzzle\MainBundle\Manager\UserManager
 
 services:
-#    fifteen_puzzle_main.example:
-#        class: %fifteen_puzzle_main.example.class%
-#        arguments: [@service_id, "plain_value", %parameter%]
+
+    # Managers _________________
+
+    fifteen_puzzle.user_manager:
+        class:        %fifteen_puzzle.user_manager.class%
+        arguments:    [@doctrine.orm.entity_manager, %fifteen_puzzle.user_manager.entity%]

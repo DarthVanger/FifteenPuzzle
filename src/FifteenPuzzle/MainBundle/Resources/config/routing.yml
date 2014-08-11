@@ -1,3 +1,9 @@
 fifteen_puzzle_main_homepage:
     path:     /
     defaults: { _controller: FifteenPuzzleMainBundle:Default:index }
+fifteen_puzzle_main_save:
+    path:     /save
+    defaults: { _controller: FifteenPuzzleMainBundle:Saves:savePieceArrangement}
+fifteen_puzzle_main_get_save:
+    path:     /get-save
+    defaults: { _controller: FifteenPuzzleMainBundle:Saves:getPieceArrangementMap}

@@ -7,10 +7,7 @@ module.exports = function(config){
       'app/js/**/*.js',
       'test/unit/**/*.js',
       'bower_components/jquery/dist/jquery.js'
-      //{pattern: 'test/test-index.html', served: true, included: false}
     ],
-
-    //preprocessors : [{'test/test-index.html' : ''}],
 
     autoWatch : true,
 

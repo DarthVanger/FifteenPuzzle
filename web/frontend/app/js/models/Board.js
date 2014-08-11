@@ -3,7 +3,7 @@
  *  Represents the fifteen puzzle board with cells and pieces.
  *  Can move pieces and stores piece arrangement map.
  */
-function Board(pieceArrangementMap) {
+function Board(config) {
   var self = this;
 
   /**
@@ -55,7 +55,6 @@ function Board(pieceArrangementMap) {
   this.getEmptyCell = function() {
     return emptyCell;
   }
-
 
   /**
    *  Generates and returns pieceArrangementMap.
@@ -401,21 +400,38 @@ function Board(pieceArrangementMap) {
 
   /**
    *  Constructor
-   *  @param pieceArrangementMap map of piece arrangement.
-   *    Format: 2d array with numbers of pieces, 0 represents emtpy cell.
+   *  @param config Object with following properties:
+   *    config.pieceArrangementMap - map of piece arrangement.
+   *      Format: 2d array with numbers of pieces, 0 represents emtpy cell.
+   *    config.boardWidth - width of board in cells, default is 4.
    */
   console.log('debug', 'Board.constructor() invoked');
-  
-  cells = createCells();
 
-  if(!pieceArrangementMap) {
-    pieceArrangementMap = generateRandomPieceArrangementMap();
+  // read config
+  if (config) {
+      if(config.boardWidth) {
+        boardWidth = config.boardWidth;
+      }
+
+      if(config.pieceArrangementMap) {
+        validatePieceArrangementMap(config.pieceArrangementMap);
+        pieceArrangementMap = config.pieceArrangementMap;
+      } else {
+        pieceArrangementMap = generateRandomPieceArrangementMap();
+      }
   } else {
-    validatePieceArrangementMap(pieceArrangementMap);
+    pieceArrangementMap = generateRandomPieceArrangementMap();
   }
-
+  
+  // create cells and put the pieces in them
+  cells = createCells();
   putPieces(pieceArrangementMap);
-  boardView = new HtmlBoard('board', pieceArrangementMap);
+
+  // create the view
+  boardView = new HtmlBoard({
+    'pieceArrangementMap': pieceArrangementMap,
+    'boardWidth': boardWidth 
+  });
 
   //dumpPieceArrangementToLog();
 

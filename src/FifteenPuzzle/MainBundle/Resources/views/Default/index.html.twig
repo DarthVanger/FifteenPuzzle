@@ -9,6 +9,7 @@
     <!-- set assets path variables -->
     {% set app = "/frontend/app" %}
     {% set bower = "/frontend/bower_components" %}
+    {% set img = app ~ "/img" %}
 
     <!-- app js -->
       <!-- jQuery -->
@@ -27,6 +28,11 @@
       <!-- View Models -->
       {% set viewModels = app ~ "/js/viewModels" %}
       <script src={{ asset(viewModels ~ "/HtmlBoard.js") }}></script>
+      <script src={{ asset(viewModels ~ "/HtmlGameControls.js") }}></script>
+
+      <!-- Services -->
+      {% set services = app ~ "/js/services" %}
+      <script src={{ asset(services ~ "/SavesManager.js") }}></script>
 
       <!-- Exceptions -->
       {% set exceptions = app ~ "/js/exceptions" %}
@@ -60,7 +66,18 @@
   </head>
   <body>
     <div id="main-container" class="text-center">
-      <div id="board"></div>    
+      <div id="loading-game">
+        <img src={{ asset(img ~ "/spinner.gif") }} />
+      </div>
+      <div id="game-container">
+          <div id="board-container">
+            <div id="board"></div>    
+          </div>
+          <a id="save-button" href="javascript: void(0)" class="btn btn-primary">save</a>
+          <div id="notification-container">
+            <div id="notification"></div>
+          </div>
+      </div> <!-- end #game-container -->
     </div> <!-- end #main-container -->
   </body>
 </html>

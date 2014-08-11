@@ -2,13 +2,51 @@ html, body, #main-container {
   height: 100%;
   width: 100%;
 }
-#main-container {
+
+/* hidden by default, should be shown when the game is loaded */
+#game-container {
+  display: none;
 }
+
+#loading-game {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+#loading-game img {
+  vertical-align: middle;
+}
+
 /* ghost element for vertical align */
-#main-container:before {
+#loading-game:before {
   content: "";
   display: inline-block;
   height: 100%;
   width: 0;
   vertical-align: middle;
+}
+
+/* Extra Small and Small devices (phones, tablets, less than 992 px) */
+#main-container {
+  padding-top: 5px;
+}
+
+/* Medium and Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  #main-container {
+    padding-top: 20px;
+  }
+}
+
+#save-button {
+  margin: 2em 0 2em 0;
+}
+#loading-game {
+  text-align: center;
+}
+#notification-container {
+  height: 2em;
+}
+#notification {
+  color: #a00;
 }

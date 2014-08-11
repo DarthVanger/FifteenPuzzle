@@ -2,7 +2,7 @@
  *  Html Board view model.
  *  Provides methods for creating and moving pieces on the screen.
  */
-function HtmlBoard(boardDivId, pieceArrangementMap) {
+function HtmlBoard(config) {
   var self = this;
 
   /**
@@ -33,8 +33,12 @@ function HtmlBoard(boardDivId, pieceArrangementMap) {
     //console.log('debug', 'HtmlBoard.movePiece(): fromCellDiv = ' + fromCellDiv);
     var piece = fromCellDiv.removeChild(fromCellDiv.firstChild);
     var emptyPiece = toCellDiv.removeChild(toCellDiv.firstChild);
+
     fromCellDiv.appendChild(emptyPiece);
+    fromCellDiv.className = 'board-cell-empty';
+
     toCellDiv.appendChild(piece);
+    toCellDiv.className = 'board-cell';
   }
 
   /*** Private methods ***/
@@ -42,12 +46,16 @@ function HtmlBoard(boardDivId, pieceArrangementMap) {
   /**
    *  Create cells and append them to boardDiv
    */
-  function createCells() {
-    for(var i=0; i<boardWidth; i++) {
+  function createCells(pieceArrangementMap) {
+    for (var i=0; i<boardWidth; i++) {
       cells[i] = new Array(boardWidth);
       var row = createRow();
-      for(var j=0; j<boardWidth; j++) {
+      for (var j=0; j<boardWidth; j++) {
         var cell = createCell(i,j);
+        if (pieceArrangementMap[i][j] == 0) {
+          // if empty cell
+          cell.className = 'board-cell-empty';
+        }
         cells[i][j] = cell;
         row.appendChild(cell);
       }
@@ -68,8 +76,10 @@ function HtmlBoard(boardDivId, pieceArrangementMap) {
   function createCell() {
     var cell = document.createElement('div');
     cell.className = 'board-cell';
-    cell.style.width = 100/boardWidth + '%';
-    cell.style.height = '100%';
+    cell.style.width = 90/boardWidth + '%';
+    cell.style.marginLeft = 2/boardWidth + '%';
+    cell.style.marginRight = 2/boardWidth + '%';
+    cell.style.height = '95%';
 
     return cell;
   }
@@ -127,12 +137,23 @@ function HtmlBoard(boardDivId, pieceArrangementMap) {
    *  Constructor
    */
   console.log('debug', 'HtmlBoard.constructor() invoked');
-  boardDiv = document.getElementById(boardDivId);
-  console.log('debug', 'HtmlBoard.contructor(): boardDiv = ' + boardDiv);
-  createCells();
-  addClickListeners();
-  putPieces(pieceArrangementMap);
 
+  if (config.boardWidth) {
+    boardWidth = config.boardWidth;
+  }
+
+  boardDiv = document.getElementById('board');
+  console.log('debug', 'HtmlBoard.contructor(): boardDiv = ' + boardDiv);
+  createCells(config.pieceArrangementMap);
+  addClickListeners();
+  putPieces(config.pieceArrangementMap);
+
+  // html board is ready
+  // hide the loading-game block and show the game block
+  var gameContainerDiv = document.getElementById('game-container');
+  var loadingGameDiv = document.getElementById('loading-game');
+  $(loadingGameDiv).hide();
+  $(gameContainerDiv).show();
 
   /** End Constructor **/
 

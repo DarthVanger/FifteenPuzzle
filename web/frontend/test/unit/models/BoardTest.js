@@ -95,20 +95,27 @@ describe("Board model", function() {
   it("should have puzzleSolved() responding correctly for solved and not solved configurations", function() {
     var solvedPieceArrangementMap = generateSolvedPieceArrangementMap();
     //console.log('debug', 'Board.puzzleSolved test: solvedPieceArragementMap: ' + solvedPieceArrangementMap);
-    var board = new Board(solvedPieceArrangementMap);
+    var board = new Board({
+      'pieceArrangementMap': solvedPieceArrangementMap
+    });
+
     expect(board.puzzleSolved()).toBe(true);
 
     // swap two pieces
     var notSolvedMap = solvedPieceArrangementMap;
     notSolvedMap[3][2] = 14;
     notSolvedMap[3][1] = 15;
-    board = new Board(notSolvedMap);
+    var board = new Board({
+      'pieceArrangementMap': notSolvedMap 
+    });
     expect(board.puzzleSolved()).toBe(false);
 
     // swap empty cell and a piece
     notSolvedMap[3][1] = 0;
     notSolvedMap[3][3] = 15;
-    board = new Board(notSolvedMap);
+    var board = new Board({
+      'pieceArrangementMap': notSolvedMap
+    });
     expect(board.puzzleSolved()).toBe(false);
   });
 

@@ -1,8 +1,15 @@
+/* ghost element for vertical align */
+#board-container:before {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 0;
+  vertical-align: middle;
+}
+
 #board {
   display: inline-block;
   vertical-align: middle;
-  border: solid black 1px;
-  background-color: #eef;
   cursor: pointer;
   /* disable user select highliting */
   -webkit-touch-callout: none;
@@ -13,28 +20,21 @@
   user-select: none;
 }
 
-/* Extra Small and Small devices (phones, tablets, less than 992 px) */
-#board {
-  width: 95vmin;
-  height: 95vmin;
-}
-
-/* Medium and Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  #board {
-    height: 500px;
-    width: 500px;
-  }
-}
-
-.board-cell {
+.board-cell, .board-cell-empty {
   display: inline-block;
-  border: solid black 1px;
+  border-radius: 10px;
+  color: white;
+}
+.board-cell {
+  background-color: #ff7706;
+}
+.board-cell-empty {
+  background-color: none;
 }
 .puzzle-piece {
   display: inline-block;
   vertical-align: middle;
-  font-size: 30px;
+  font-weight: bold;
 }
 /* ghost 100% height element for vertical aligning */
 .board-cell:before {
@@ -42,4 +42,30 @@
   display: inline-block;
   height: 100%;
   vertical-align: middle;
+}
+
+/* Extra Small (phones, less than 768 px) */
+#board {
+  width: 95vmin;
+  height: 95vmin;
+}
+.puzzle-piece {
+  font-size: 40px;
+}
+
+/* Small devices (tablets, greater than 768px) */
+@media (min-width: 768px) {
+  .puzzle-piece {
+    font-size: 50px;
+  }
+}
+/* Medium and Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  #board {
+    height: 500px;
+    width: 500px;
+  }
+  .puzzle-piece {
+    font-size: 50px;
+  }
 }
