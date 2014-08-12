@@ -1,6 +1,10 @@
 /**
  *  Html Board view model.
- *  Provides methods for creating and moving pieces on the screen.
+ *  Is a visual html representation of the Board model.
+ *  Creates cells and pieces as HTMLDivElements, and adds them to the page.
+ *  Provides public method to move piece from one cell to another.
+ *  Provides listeners for cell clicks, dispatching "BoardClick" event with 
+ *  coordinates of clicked cell.
  */
 function HtmlBoard(config) {
   var self = this;

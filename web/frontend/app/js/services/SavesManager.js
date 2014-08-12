@@ -1,5 +1,6 @@
 /**
  *  Saves Manager
+ *  Provides methods for saving piece arrangement to server and getting saves from server.
  */
 function SavesManager(config) {
 

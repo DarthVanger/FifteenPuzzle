@@ -5,6 +5,9 @@ use Doctrine\ORM\Decorator\EntityManagerDecorator;
 use Doctrine\Common\EventManager;
 use Doctrine\ORM\Configuration;
 
+/**
+ *  Database manager for User entity.
+ */
 class UserManager extends EntityManagerDecorator
 {
     /**

@@ -11,6 +11,10 @@ use Symfony\Component\HttpFoundation\Cookie;
 
 use FifteenPuzzle\MainBundle\Entity\User;
 
+/**
+ *  Saves Controller
+ *  Provides API for saving game and getting a save.
+ */
 class SavesController extends Controller
 {
     /**

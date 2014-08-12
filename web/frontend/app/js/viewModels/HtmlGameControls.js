@@ -1,5 +1,7 @@
 /**
  *  Html Game Controls
+ *  Works with DOM save button and notification div.
+ *  
  */
 function HtmlGameControls() {
 

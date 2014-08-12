@@ -1,7 +1,8 @@
 /**
  *  Board Model
  *  Represents the fifteen puzzle board with cells and pieces.
- *  Can move pieces and stores piece arrangement map.
+ *  Contains all the logic for moving pieces, checking if the puzzle is solved,
+ *  generating piece arrangement map for saving game.
  */
 function Board(config) {
   var self = this;

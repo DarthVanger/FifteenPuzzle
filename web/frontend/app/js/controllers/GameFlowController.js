@@ -1,7 +1,10 @@
 /**
  *  Game Flow Controller
- *  Controls game flow like initialize game, start new game, save game,
- *  display congradulations for solving puzzle.
+ *  Controls the whole game process:
+ *  - initializes the game;
+ *  - listens for user click events and calls corresponding methods of
+ *  models and services;
+ *  - checks if the puzzle is solved and displays the congradulations.
  */
 function GameFlowController() {
   var self = this;
