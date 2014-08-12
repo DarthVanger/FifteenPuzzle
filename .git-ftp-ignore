@@ -1,1 +1,2 @@
 app/config/parameters.yml
+web/frontend/node_modules/*
