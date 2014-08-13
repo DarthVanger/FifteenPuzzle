@@ -23,6 +23,7 @@ function SavesManager(config) {
         map = null;
       } else {
         // user has a save
+        console.log('debug', 'SavesManager.getSave(): user has a save, parsing ' + map);
         var map = parsePieceArrangementMapFromJsonString(response);
       }
       callback(map);
