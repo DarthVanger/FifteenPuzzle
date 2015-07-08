@@ -12,4 +12,4 @@ Front end is located at `/web/frontend/`. Js sources can be found in `/web/front
 Back end sources are located at `/src/FifteenPuzzle/MainBundle`.
 `Index.html` path is `/src/FifteenPuzzle/MainBundle/Resources/views/Default/index.html.twig`
 
-[Class Diagram!](docs/materials/uml/FifteenPuzzle.jpg)
+![Class Diagram](../../materials/uml/FifteenPuzzle.jpg)
