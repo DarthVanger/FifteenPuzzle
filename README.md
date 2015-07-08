@@ -12,7 +12,7 @@ I have developed this game for sake of practise, but you are free to see how it'
 
 Class Diagram
 -------------
-![Class Diagram](../../FifteenPuzzle.png)
+![Class Diagram](wiki/FifteenPuzzle.png)
 
 
 Technologies used
