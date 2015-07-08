@@ -1,15 +1,25 @@
-Description
------------
 Fifteen puzzle online javascript game.
+
+Demo
+----
+http://darthvanger.0fees.net/fifteen-puzzle/web
+
+Installation
+------------
+Sorry guys, there's no installation :)
+I have developed it for sake of practise, but you are free to see how it's made:
+
+Class Diagram
+-------------
+![Class Diagram](materials/uml/FifteenPuzzle.jpg)
+
+
+
+Technologies used
+-----------------
+Pure Javascript, tested with Jasmine + Karma.
+Backend for saves works on Symfony2.
 
 Documentation
 -------------
-More info in wiki section (https://github.com/DarthVanger/FifteenPuzzle/wiki).
-
-Directory Structure
--------------------
-Front end is located at `/web/frontend/`. Js sources can be found in `/web/frontend/app/js/`. Front end tests are in `/web/frontend/test/`.
-Back end sources are located at `/src/FifteenPuzzle/MainBundle`.
-`Index.html` path is `/src/FifteenPuzzle/MainBundle/Resources/views/Default/index.html.twig`
-
-![Class Diagram](materials/uml/FifteenPuzzle.jpg)
+Documentation is here: (https://github.com/DarthVanger/FifteenPuzzle/wiki).
