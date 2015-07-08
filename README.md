@@ -8,11 +8,11 @@ Installation
 ------------
 Sorry guys, there's no installation :)
 
-I have developed it for sake of practise, but you are free to see how it's made:
+I have developed this game for sake of practise, but you are free to see how it's made:
 
 Class Diagram
 -------------
-![Class Diagram](materials/uml/FifteenPuzzle.jpg)
+![Class Diagram](materials/uml/FifteenPuzzle.png)
 
 
 Technologies used
