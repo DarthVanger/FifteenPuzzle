@@ -1,4 +1,4 @@
-Fifteen puzzle online javascript game.
+Fifteen puzzle online javascript game (made as a test task for one job).
 
 Demo
 ----
