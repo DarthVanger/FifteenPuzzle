@@ -19,7 +19,7 @@ Technologies used
 -----------------
 Pure Javascript, tested with Jasmine + Karma.
 
-Backend for saves works on Symfony2.
+Backend for saves works on Symfony2 (it's surely an overhead for this, just wanted to try the framework :) )
 
 Documentation
 -------------
